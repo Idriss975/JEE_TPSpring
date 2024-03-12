@@ -19,8 +19,8 @@ public class Cours {
     private String titre;
     private String description;
     @OneToOne
-    private Professeur Professeur;
+    private Professeur professeur;
 
     @OneToMany(mappedBy = "Cours", fetch = FetchType.LAZY)
-    private Collection<Seance> Seances = new ArrayList<>();
+    private Collection<Seance> seances = new ArrayList<>();
 }

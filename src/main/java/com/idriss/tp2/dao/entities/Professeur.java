@@ -10,11 +10,7 @@ import java.util.Date;
 @Entity
 @Data @NoArgsConstructor
 @AllArgsConstructor
-public class Professeur {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
-    private String nom;
+public class Professeur extends Personne{
     private Date d_affection;
 
     @OneToOne(mappedBy = "Professeur")

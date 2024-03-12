@@ -11,15 +11,9 @@ import java.util.Collection;
 @Entity
 @Data @NoArgsConstructor
 @AllArgsConstructor
-public class Etudiant {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
-
-    private String nom;
+public class Etudiant extends Personne{
     private String matricule;
 
     @ManyToMany(mappedBy = "Etudiant", fetch = FetchType.EAGER)
-    private Collection<Seance> Seances = new ArrayList<>();
+    private Collection<Seance> seances = new ArrayList<>();
 }

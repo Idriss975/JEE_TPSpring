@@ -24,6 +24,6 @@ public class Seance {
     private  Cours cours;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Collection<Etudiant> Etudiants = new ArrayList<>();
+    private Collection<Etudiant> etudiants = new ArrayList<>();
 
 }
