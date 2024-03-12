@@ -1,0 +1,1 @@
+On comprends qu'il y'a plusieurs methodes pour representer les liaisons et et heritages entres les entités. 
