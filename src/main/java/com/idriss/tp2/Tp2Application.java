@@ -1,7 +1,6 @@
 package com.idriss.tp2;
 
 import com.idriss.tp2.dao.entities.Product;
-import com.idriss.tp2.dao.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
