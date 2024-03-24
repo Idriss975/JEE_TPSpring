@@ -1,37 +1,36 @@
-package com.idriss.tp2;
+package com.idriss.tp2.dao.entities;
 
-import com.idriss.tp2.dao.entities.Product;
-import com.idriss.tp2.dao.repositories.ProductRepository;
+import com.idriss.tp2.service.ProductManager;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Date;
+
 @SpringBootApplication
-public class Tp2Application implements CommandLineRunner {
+public class ViewApplication implements CommandLineRunner {
 	@Autowired
-	private ProductRepository pR;
+	private ProductManager productManager;
 
 	public static void main(String[] args) {
-		SpringApplication.run(Tp2Application.class, args);
+		SpringApplication.run(ViewApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		//Create
-		Product Prod = new Product(1, "Sanicroix", "eye dropplets", 0.5);
-		pR.save(Prod);
+		Product product = new Product(null, "javeel", 1223.0F);
+		Product product1 = new Product(null, "dadfd", 1235.0F);
+		Product product2 = new Product(null, "3asser", 1823.0F);
+		productManager.addProduct(product);
+		productManager.addProduct(product1);
+		productManager.addProduct(product2);
 
-		//Read
-		Prod = pR.getReferenceById(1);
-		System.out.println(Prod);
-
-		// Update
-		Prod.setPrice(10);
-
-		//Delete
-		pR.delete(Prod);
+		System.out.println(productManager.getAllProducts());
 
 	}
-
 }
