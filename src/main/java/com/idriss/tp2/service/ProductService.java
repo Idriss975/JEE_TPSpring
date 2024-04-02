@@ -16,7 +16,7 @@ public class ProductService implements ProductManager {
 
     @Override
     public Product addProduct(Product product) {
-        if (product.getPrix() > 0) {
+        if (product.getPrice() > 0) {
             return productRepository.save(product);
         } else {
             System.out.println("the price is not valid");

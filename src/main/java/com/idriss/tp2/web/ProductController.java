@@ -13,32 +13,31 @@ import java.util.List;
 
 
 
-    @Controller
-    public class ProductController {
+@Controller
+public class ProductController {
 
-        @Autowired
-        private ProductManager productManager;
+    @Autowired
+    private ProductManager productManager;
 
-        @GetMapping("/getProductsList")
-        public String getALlProducts(Model model) {
-            List<Product> products = productManager.getAllProducts();
-            model.addAttribute("listProduits", products);
-            return "listProduit" ;
-        }
-
-        @GetMapping("/ajouterproduit")
-        public String addProduct(Model model) {
-            return "addProduit";
-        }
-
-        @PostMapping("ajouterproduit")
-        public String addproductdb(Model model, @RequestParam(name = "description") String description,
-                                   @RequestParam(name = "price") float price) {
-            Product product = new Product();
-            product.setDesignation(description);
-            product.setPrix(price);
-            productManager.addProduct(product);
-            return getALlProducts(model);
-        }
+    @GetMapping("/getProductsList")
+    public String getALlProducts(Model model) {
+        List<Product> products = productManager.getAllProducts();
+        model.addAttribute("listProduct", products);
+        return "listProduct";
     }
 
+    @GetMapping("/ajouterproduit")
+    public String addProduct(Model model) {
+        return "addProduct";
+    }
+
+    @PostMapping("ajouterproduit")
+    public String addproductdb(Model model, @RequestParam(name = "description") String description,
+                               @RequestParam(name = "price") double price) {
+        Product product = new Product();
+        product.setDescription(description);
+        product.setPrice(price);
+        productManager.addProduct(product);
+        return "redirect:getProductsList";
+    }
+}
