@@ -11,8 +11,8 @@ public class UserSecurityConfig {
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         /*Approach 2 where we use NoOpPasswordEncoder Bean while creating the user details*/
-        UserDetails admin = User.withUsername("admin")
-                .password("12345")
+        UserDetails admin = User.withUsername("batista")
+                .password("123")
                 .authorities("admin")
                 .build();
         UserDetails user = User.withUsername("user")
